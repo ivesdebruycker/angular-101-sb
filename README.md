@@ -144,7 +144,7 @@ automatisch:
  * koppeling in index.html naar sbColor.js
  * test/spec/directives/sbColor.js
  
- In sbColor.js:
+In sbColor.js:
  
 ```javascript
 'use strict';
@@ -190,4 +190,77 @@ angular.module('angular101SbApp')
 	    }
     };
 });
+```
+
+## Testing
+
+### Fix tests
+
+
+In karma.conf.js:
+
+```javascript
+files = [
+	...
+	'app/bower_components/angular-ui-utils/modules/mask/mask.js',
+   ];
+```
+
+omdat ui.mask dependency is van angular101SbApp.
+
+Geen functionaliteit in controller MyRouteCtrl, dus test legen.
+
+### Test directive
+
+sbColor.js:
+
+```javascript
+'use strict';
+
+describe('Directive: sbColor', function () {
+  beforeEach(module('angular101SbApp'));
+
+  var element;
+
+  it('should not pass with invalid hex color', inject(function ($rootScope, $compile) {
+  	element = angular.element(
+      '<form name="form">' +
+        '<input sb-color ng-model="color" name="colorinput"></input>' +
+      '</form>'
+    );
+    element = $compile(element)($rootScope);
+
+    $rootScope.form.colorinput.$setViewValue('#zzz');
+    expect($rootScope.color).toBeUndefined();
+    expect($rootScope.form.colorinput.$valid).toBe(false);
+
+    $rootScope.form.colorinput.$setViewValue('aaff00');
+    expect($rootScope.color).toBeUndefined();
+    expect($rootScope.form.colorinput.$valid).toBe(false);
+  }));
+
+  it('should pass with invalid hex color', inject(function ($rootScope, $compile) {
+  	element = angular.element(
+      '<form name="form">' +
+        '<input sb-color ng-model="color" name="colorinput"></input>' +
+      '</form>'
+    );
+    element = $compile(element)($rootScope);
+
+    $rootScope.form.colorinput.$setViewValue('#abc');
+    expect($rootScope.color).toBe('#abc');
+    expect($rootScope.form.colorinput.$valid).toBe(true);
+
+    $rootScope.form.colorinput.$setViewValue('#aaff00');
+    expect($rootScope.color).toBe('#aaff00');
+    expect($rootScope.form.colorinput.$valid).toBe(true);
+  }));
+});
+
+```
+
+Uitvoeren testen:
+
+```
+grunt test
 ```

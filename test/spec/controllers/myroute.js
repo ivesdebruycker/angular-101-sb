@@ -3,7 +3,7 @@
 describe('Controller: MyrouteCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('angular101SbApp'));
+  beforeEach(module('angular101SbApp', ['ui.mask']));
 
   var MyrouteCtrl,
     scope;
@@ -16,7 +16,4 @@ describe('Controller: MyrouteCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
-  });
 });

@@ -9,6 +9,7 @@ files = [
   JASMINE_ADAPTER,
   'app/bower_components/angular/angular.js',
   'app/bower_components/angular-mocks/angular-mocks.js',
+  'app/bower_components/angular-ui-utils/modules/mask/mask.js',
   'app/scripts/*.js',
   'app/scripts/**/*.js',
   'test/mock/**/*.js',
