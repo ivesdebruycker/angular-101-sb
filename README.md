@@ -95,7 +95,7 @@ Gebruikte directives: `ng-required` en `ng-pattern`
 ## Dependencies met Bower
 [Swiss-Army-Knife of AngularJS tools](http://angular-ui.github.io/ui-utils/)
 
-bower.json:
+In bower.json:
 
 ```javascript
  "dependencies": {
@@ -106,4 +106,28 @@ bower.json:
 
 ```
 bower install
+```
+
+In index.html:
+
+```html
+<script src="bower_components/angular-ui-utils/modules/mask/mask.js"></script>
+```
+
+In app.js:
+
+```javascript
+angular.module('angular101SbApp', ['ui.mask'])
+```
+
+In myroute.html:
+
+```html
+<div class="well">
+	<div ng-form  class="form-inline" name="form2">
+		<input type="text" name="rrnr" ng-model="rrnr" ui-mask="99.99.99-999.99"></input>
+	</div>
+
+	<code ng-show="rrnr">{{rrnr}}</code>
+</div>
 ```

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angular101SbApp', [])
+angular.module('angular101SbApp', ['ui.mask'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
