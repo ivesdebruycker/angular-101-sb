@@ -1,4 +1,61 @@
-angular-101-sb
-==============
+## Installatie
+### Chocolatey (Windows)
+http://chocolatey.org/
 
-Schaubroeck AngularJS intro
+```
+@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%systemdrive%\chocolatey\bin - See more at: http://chocolatey.org/#sthash.csOPcB7E.dpuf
+```
+
+### Node.js (+Npm) e.a.
+
+```
+cinst nodejs.install
+cinst git
+cinst compass
+cinst ruby
+```
+
+### Yeoman (+Bower, + Grunt) e.a.
+
+```
+npm install yo -g
+npm install generator-angular -g
+```
+
+Controle: `npm list -g`
+
+## Opzetten Angular project
+
+```
+yo angular
+```
+(evt. `npm install`)
+
+Test:
+
+```
+grunt test
+grunt server
+```
+
+## Route toevoegen
+
+```
+yo angular:route myroute
+```
+
+## Dependencies met Bower
+[Swiss-Army-Knife of AngularJS tools](http://angular-ui.github.io/ui-utils/)
+
+bower.json:
+
+```javascript
+ "dependencies": {
+ 	...
+    "angular-ui-utils": "~0.0.4"
+  },
+```
+
+```
+bower install
+```
