@@ -29,6 +29,8 @@ Controle: `npm list -g`
 ```
 yo angular
 ```
+met default waarden.
+
 (evt. `npm install`)
 
 Test:
@@ -38,11 +40,21 @@ grunt test
 grunt server
 ```
 
+(evt. 'CHROME_BIN' gebruikersvariabele toevoegen)
+
 ## Route toevoegen
 
 ```
 yo angular:route myroute
 ```
+
+automatisch:
+
+ * controllers/myroute.js
+ * views/myroute.html
+ * koppeling in index.html naar myroute.js
+ * test/spec/controllers/myroute.js
+
 
 ## Dependencies met Bower
 [Swiss-Army-Knife of AngularJS tools](http://angular-ui.github.io/ui-utils/)
