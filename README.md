@@ -75,6 +75,22 @@ Model -> UI:
 <button class="btn" ng-click="person.firstname='Apu'; person.lastname='Nahasapeemapetilon'">Model->UI data binding</button>
 ```
 
+Gebruikte directives: `ng-form`, `ng-model`, `ng-show` en `ng-click`
+
+## Form-validatie a.h.v. directives
+
+```html
+<div class="alert alert-block" ng-show="!form1.$valid">
+	<div ng-show="form1.lastname.$error.required">Achternaam verplicht</div>
+	<div ng-show="form1.zip.$error.pattern">Postcode incorrect</div>
+</div>
+
+<input type="text" name="firstname" ng-model="person.firstname" placeholder="voornaam"></input>
+<input type="text" name="lastname" ng-model="person.lastname" placeholder="achternaam" ng-required="true"></input>
+<input type="text" name="zip" ng-model="person.zip" placeholder="postcode" ng-pattern="/^\d\d\d\d$/"></input>
+```
+
+Gebruikte directives: `ng-required` en `ng-pattern`
 
 ## Dependencies met Bower
 [Swiss-Army-Knife of AngularJS tools](http://angular-ui.github.io/ui-utils/)
