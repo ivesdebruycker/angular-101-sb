@@ -54,6 +54,20 @@ automatisch:
  * views/myroute.html
  * koppeling in index.html naar myroute.js
  * test/spec/controllers/myroute.js
+ 
+## Data-binding
+UI -> model:
+
+```html
+<div class="well">
+	<div ng-form  class="form-inline" name="form1">
+		<input type="text" name="firstname" ng-model="person.firstname" placeholder="voornaam"></input>
+		<input type="text" name="lastname" ng-model="person.lastname" placeholder="achternaam"></input>
+	</div>
+
+	<code ng-show="person">{{person}}</code>
+</div>
+```
 
 
 ## Dependencies met Bower
