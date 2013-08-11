@@ -60,13 +60,19 @@ UI -> model:
 
 ```html
 <div class="well">
-	<div ng-form  class="form-inline" name="form1">
+	<div ng-form class="form-inline" name="form1">
 		<input type="text" name="firstname" ng-model="person.firstname" placeholder="voornaam"></input>
 		<input type="text" name="lastname" ng-model="person.lastname" placeholder="achternaam"></input>
 	</div>
 
 	<code ng-show="person">{{person}}</code>
 </div>
+```
+
+Model -> UI:
+
+```html
+<button class="btn" ng-click="person.firstname='Apu'; person.lastname='Nahasapeemapetilon'">Model->UI data binding</button>
 ```
 
 
