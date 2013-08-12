@@ -192,6 +192,21 @@ angular.module('angular101SbApp')
 });
 ```
 
+In myroute.js:
+
+```html
+<div class="well">
+	<div ng-form  class="form-inline" name="form3">
+		<div class="input-append">
+			<input type="text" sb-color ng-model="color"></input>
+			<span class="add-on" ng-style="{backgroundColor: color}"></span>
+		</div>
+	</div>
+
+	<code ng-show="color">{{color}}</code>
+</div>
+```
+
 ## Testing
 
 ### Fix tests
